@@ -9,7 +9,8 @@ const Discord = require('discord.js');
 
 // Create an instance of a Discord client
 const client = new Discord.Client();
-const botToken = 'Nzg2MjA2ODQ3NzUyNDcwNTQ4.X9DCLw.EaWx27qxd4IexNH2RRNiAiLU8KQ';
+// Get token from https://discord.com/developers/applications
+const botToken = '';
 
 /**
  * The ready event is vital, it means that only _after_ this will your bot start reacting to information
@@ -28,5 +29,5 @@ client.on('message', message => {
   }
 });
 
-// Log our bot in using the token from https://discord.com/developers/applications
+// Log our bot in using the token
 client.login(botToken);
