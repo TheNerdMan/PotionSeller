@@ -53,14 +53,8 @@ module.exports = {
             if(param.includes(",")) {
                 throw 'Campaign can not contain commas \',\'';
             }
-            
             const guild = message.guild;
-            const category = guild.channels.cache.find(c => c.name == param && c.type == "category");
-            if(!category){
-                throw `could not find campaign category`;
-            }
-            category.delete();
-
+            
             const textChannel = guild.channels.cache.find(c => c.name == param && c.type == "text");
             if(!textChannel){
                 throw `could not find campaign text`;
@@ -72,6 +66,13 @@ module.exports = {
                 throw `could not find campaign voice`;
             }
             voiceChannel.delete();
+
+            const category = guild.channels.cache.find(c => c.name == param && c.type == "category");
+            if(!category){
+                throw `could not find campaign category`;
+            }
+            category.delete();
+
         }
     },
 
