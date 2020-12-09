@@ -9,7 +9,6 @@ const Discord = require('discord.js');
 
 // Create an instance of a Discord client
 const client = new Discord.Client();
-// Get token from https://discord.com/developers/applications
 const botToken = '';
 
 /**
@@ -27,7 +26,40 @@ client.on('message', message => {
     // Send "pong" to the same channel
     message.channel.send('pong');
   }
+
+  // If the message is "!createCampain"
+  if (message.content.startsWith('!createCampain')) {
+    const param = message.content.replace("!createCampain", "")
+
+    // Create a new category text channel
+    const guild = message.guild;
+    guild.channels.create(param, 
+      { 
+        type: 'category', 
+        reason: 'New Campain' 
+      }
+    ).then(c =>{ 
+      console.log;
+      guild.channels.create(param, 
+      { 
+        type: 'text', 
+        reason: 'New Campain',
+        parent: c
+      }
+      ).then(console.log).catch(console.error); 
+
+      guild.channels.create(param, 
+        { 
+          type: 'voice', 
+          reason: 'New Campain',
+          parent: c
+        }
+      ).then(console.log).catch(console.error);
+
+    }).catch(console.error); 
+  }
+
 });
 
-// Log our bot in using the token
+// Log our bot in using the token from https://discord.com/developers/applications
 client.login(botToken);
