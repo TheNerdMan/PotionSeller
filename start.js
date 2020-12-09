@@ -10,17 +10,23 @@ const client = new Discord.Client();
  * The ready event is vital, it means that only _after_ this will your bot start reacting to information
  * received from Discord
  */
-client.on('ready', () => {
+client.on('ready', () => {    
     Ready.ready();
 });
 
 // Create an event listener for messages
 client.on('message', message => {
-    console.log(message.content);
-    Messages.createCampaign(Config.botConfig, message);
-    Messages.removeCampaign(Config.botConfig, message);
-    Messages.addPlayer(Config.botConfig, message);
-    Messages.help(Config.botConfig, message);
+    try
+    {
+        Messages.createCampaign(Config.botConfig, message);
+        Messages.removeCampaign(Config.botConfig, message);
+        Messages.addPlayer(Config.botConfig, message);
+        Messages.help(Config.botConfig, message);
+    } 
+    catch(ex)
+    {
+        message.reply(`Error! [${ex}]`);
+    }
 });
 
 // Log our bot in using the token from https://discord.com/developers/applications

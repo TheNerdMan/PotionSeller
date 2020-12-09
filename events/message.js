@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = {
     createCampaign: function(config, message) {
         // Syntax !createCampaign {Campaign Name}
@@ -51,8 +49,6 @@ module.exports = {
         // Syntax !removeCampaign {Campaign Name}
         if (message.content.startsWith(`${config.botPrefix}removeCampaign`)) {
             const param = message.content.replace(`${config.botPrefix}removeCampaign`, "").trim();
-
-            console.log(param)
 
             if(param.includes(",")) {
                 throw 'Campaign can not contain commas \',\'';
