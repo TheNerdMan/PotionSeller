@@ -1,8 +1,11 @@
-const Config = require('./config/config.js');
+const { prefix } = require('../config.json');
 
 module.exports = {
     name: 'help',
     description: 'List all commands or details about a single command',
+    aliases: ['commands'],
+	usage: '[command name]',
+	cooldown: 5,
     execute(message, args) {
         const data = [];
         const { commands } = message.client;
@@ -10,7 +13,7 @@ module.exports = {
         if(!args.length) {
             data.push('These are my commands:');
             data.push(commands.map(c => c.name).join(', '));
-            data.push(`\n Use \'${Config.botConfig.botPrefix}help [command name]\' to get info about that command`);
+            data.push(`\n Use \'${prefix}help [command name]\' to get info about that command`);
 
             return message.author.send(data, { split: true })
                 .then(() => {
@@ -30,7 +33,11 @@ module.exports = {
             return message.reply(`Thats not a command traveller.`);
         }
 
-        data.push(`Name: ${command.name}`);
+        data.push(`Name: ${command.name}`);        
+        if (command.aliases) data.push(`Aliases: ${command.aliases.join(', ')}`);
+        if (command.description) data.push(`Description: ${command.description}`);
+        if (command.usage) data.push(`Usage: ${prefix}${command.name} ${command.usage}`);
+        data.push(`Cooldown: ${command.cooldown || 3} second(s)`);
 
         message.channel.send(data, { split: true });
 

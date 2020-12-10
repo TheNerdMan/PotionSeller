@@ -1,6 +1,10 @@
 module.exports = {
     name: 'removeCampaign',
     description: 'Removes campaign channels',
+    args: true,
+    usage: '[Campaign Name]',
+    serverOnly: true,
+    aliases: ['completeCampaign'],
     execute(message, args) {
         const guild = message.guild;
             

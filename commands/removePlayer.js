@@ -1,6 +1,10 @@
 module.exports = {
     name: 'removePlayer',
     description: 'Removes a user to campaign channels',
+    args: true,
+    usage: '[Campaign Name] [User Name]',
+    serverOnly: true,
+    aliases: ['yeetPlayer'],
     execute(message, args) {
         const guild = message.guild;
         const category = guild.channels.cache.find(c => c.name == args[0] && c.type == "category");

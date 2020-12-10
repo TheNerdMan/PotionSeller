@@ -1,6 +1,10 @@
 module.exports = {
     name: 'addPlayer',
     description: 'Adds a user to campaign channels',
+    args: true,
+    usage: '[Campaign Name] [User Name]',
+    serverOnly: true,
+    aliases: ['summonPlayer'],
     execute(message, args) {
         const guild = message.guild;
         const category = guild.channels.cache.find(c => c.name == args[0] && c.type == "category");

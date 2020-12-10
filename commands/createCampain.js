@@ -1,6 +1,11 @@
 module.exports = {
     name: 'createCampaign',
     description: 'Creates campaign channels',
+    args: true,
+    usage: '[Campaign Name]',
+    serverOnly: true,
+    cooldown: 5,
+    aliases: ['newCampaign'],
     execute(message, args) {
         // Syntax !createCampaign {Campaign Name}
 
