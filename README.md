@@ -2,7 +2,7 @@
 A bot to help with The Potion Cart Discord Server
 
 Add the bot here:
-https://discord.com/api/oauth2/authorize?client_id=786206847752470548&permissions=1006660721&scope=bot
+https://discord.com/api/oauth2/authorize?client_id=786206847752470548&permissions=8&scope=bot
 
 (If you don't get the reference)
 
