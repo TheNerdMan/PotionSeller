@@ -89,4 +89,7 @@ client.on('message', message => {
 });
 
 // Log our bot in using the token from https://discord.com/developers/applications
-client.login(botToken);
+client.login(botToken).catch((ex) =>{
+    console.error(ex);
+    process.exit(1);
+});
