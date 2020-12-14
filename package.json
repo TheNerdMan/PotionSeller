@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/TheNerdMan/PotionSeller#readme",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "data-store": "^4.0.3",
+    "discord.js": "^12.5.1",
+    "uuid": "^8.3.2"
   }
 }

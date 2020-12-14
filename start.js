@@ -27,8 +27,8 @@ client.on('message', message => {
     const commandName = args.shift().toLowerCase();
     
     const command = client.commands.get(commandName)
-        || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
+        || client.commands.find(cmd => cmd.aliases && cmd.aliases.map(c => c.toLowerCase()).includes(commandName));
+        
     // no command exists with that name/aliase
     if(!command) return;
 
